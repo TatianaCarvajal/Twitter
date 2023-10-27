@@ -13,7 +13,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var createPasswordTextField: UITextField!
-    @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBOutlet var spinnerView: SpinnerView!
     
     private let viewModel = SignUpViewModel()
         
@@ -37,12 +37,12 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController: SignUpDelegate {    
     
     func load() {
-        self.spinner.startAnimating()
+        spinnerView.showAnimation()
     }
     
     func stopLoad() {
         DispatchQueue.main.async {
-            self.spinner.stopAnimating()
+            self.spinnerView.stopAnimation()
         }
     }
     

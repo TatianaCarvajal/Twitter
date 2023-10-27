@@ -60,21 +60,24 @@
                                     <action selector="signUpAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ci-HP-01e"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="XSm-wq-XcZ" userLabel="spinner">
-                                <rect key="frame" x="186" y="387" width="20" height="20"/>
-                            </activityIndicatorView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6R-0k-pXL" customClass="SpinnerView" customModule="TwitterApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eyB-oz-wH1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="10L-AO-tVi"/>
+                            <constraint firstItem="c6R-0k-pXL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4as-QH-wpv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dWL-CE-mSn" secondAttribute="trailing" constant="40" id="6j9-kR-ZSe"/>
+                            <constraint firstItem="c6R-0k-pXL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8aO-Bn-K71"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4wf-Q5-TdB" secondAttribute="trailing" constant="40" id="8t6-bM-NPE"/>
                             <constraint firstItem="dWL-CE-mSn" firstAttribute="bottom" secondItem="moN-Xc-c3g" secondAttribute="bottom" constant="60" id="E2d-hZ-TI0"/>
                             <constraint firstItem="Fkx-X7-3Uu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="FCs-m5-rbk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eyB-oz-wH1" secondAttribute="trailing" constant="30" id="FP4-Sd-bbF"/>
-                            <constraint firstItem="XSm-wq-XcZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IFA-bR-ziX"/>
-                            <constraint firstItem="XSm-wq-XcZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="MoT-b0-I7y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c6R-0k-pXL" secondAttribute="trailing" id="GFC-Fd-atG"/>
+                            <constraint firstItem="c6R-0k-pXL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dwU-lX-3af"/>
                             <constraint firstItem="EsI-KK-GLM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="fN0-qc-BAh"/>
                             <constraint firstItem="EsI-KK-GLM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fil-PB-EpA"/>
                             <constraint firstItem="eyB-oz-wH1" firstAttribute="bottom" secondItem="EsI-KK-GLM" secondAttribute="bottom" constant="160" id="hNB-G0-j9f"/>
@@ -92,7 +95,7 @@
                         <outlet property="createPasswordTextField" destination="4wf-Q5-TdB" id="QUW-iY-UTf"/>
                         <outlet property="emailTextField" destination="dWL-CE-mSn" id="CR2-jG-cLz"/>
                         <outlet property="nameTextField" destination="moN-Xc-c3g" id="0HG-Ey-edh"/>
-                        <outlet property="spinner" destination="XSm-wq-XcZ" id="blO-jh-ZOC"/>
+                        <outlet property="spinnerView" destination="c6R-0k-pXL" id="pi1-0o-xjF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
