@@ -15,14 +15,16 @@ protocol SignUpDelegate: AnyObject {
 }
 
 class SignUpViewModel {
-    
     weak var delegate: SignUpDelegate?
     
     func saveSignUp(name: String, email: String, password: String) {
         self.delegate?.load()
         Task {
             do {
-              let result = try await FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password)
+                let result = try await FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password)
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = name
+                try await changeRequest?.commitChanges()
             }
             catch {
                 self.delegate?.showError(message: error.localizedDescription)
@@ -31,5 +33,3 @@ class SignUpViewModel {
         }
     }
 }
-
-
