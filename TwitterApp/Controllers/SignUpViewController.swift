@@ -9,19 +9,19 @@ import UIKit
 import FirebaseAuth
 
 class SignUpViewController: UIViewController {
-
+    
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var createPasswordTextField: UITextField!
     @IBOutlet var spinnerView: SpinnerView!
     
     private let viewModel = SignUpViewModel()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            viewModel.delegate = self
+        viewModel.delegate = self
     }
-      
+    
     @IBAction func signUpAction() {
         guard let name = self.nameTextField.text, !name.isEmpty,
               let email = self.emailTextField.text, !email.isEmpty,
@@ -34,7 +34,7 @@ class SignUpViewController: UIViewController {
     }
 }
 
-extension SignUpViewController: SignUpDelegate {    
+extension SignUpViewController: SignUpDelegate {
     
     func load() {
         spinnerView.showAnimation()
@@ -50,8 +50,14 @@ extension SignUpViewController: SignUpDelegate {
         DispatchQueue.main.async {
             let alert: UIAlertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
             let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel)
-                alert.addAction(cancel)
+            alert.addAction(cancel)
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func onSuccess() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
         }
     }
 }
