@@ -31,6 +31,14 @@ class LoginViewController: UIViewController {
         }
         self.viewModel.loginUser(email: email, password: password)
     }
+    
+    @IBAction func singUpAction() {
+        let storyboard = UIStoryboard(name: "SignUpViewController", bundle: nil)
+        guard let signUpViewController = storyboard.instantiateViewController(identifier: "SignUpViewController") as? SignUpViewController else {
+            return
+        }
+       present(signUpViewController, animated: true)
+    }
 }
 
 extension LoginViewController: LoginDelegate {
