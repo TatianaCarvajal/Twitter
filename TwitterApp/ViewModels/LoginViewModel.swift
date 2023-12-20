@@ -12,6 +12,7 @@ protocol LoginDelegate: AnyObject {
     func load()
     func stopLoad()
     func onFailure(message: String)
+    func onSuccess()
 }
 
 class LoginViewModel {
@@ -22,6 +23,7 @@ class LoginViewModel {
         Task {
             do {
                 try await FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password)
+                delegate?.onSuccess()
             }
             catch {
                 self.delegate?.onFailure(message: error.localizedDescription)

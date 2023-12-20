@@ -34,6 +34,18 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginDelegate {
+    func onSuccess() {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "HomeViewController", bundle: nil)
+            guard let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else{
+                return
+            }
+            
+           // self.navigationController?.pushViewController(homeViewController, animated: true)
+            self.present(homeViewController, animated: true)
+        }
+    }
+    
     func load() {
         spinnerView.showAnimation()
     }
